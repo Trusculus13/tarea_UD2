@@ -4,7 +4,26 @@ package ud2_practica;
 public class HilosConcurrencia {
 
     public static void main(String[] args) {
+        // Define el número de hilos que se van a crear
+        int numeroDeHilos = 5;
 
+        // Crea un arreglo para almacenar los hilos que se van a iniciar
+        Thread[] hilos = new Thread[numeroDeHilos];
+
+        // Bucle para crear y arrancar los hilos
+        for (int i = 0; i < numeroDeHilos; i++) {
+            // Asigna un nombre único a cada hilo
+            String nombreHilo = "Hilo " + (i + 1);
+
+            // Crea una instancia de MiHilo (implementación de Runnable) con el nombre del hilo
+            MiHilo miHilo = new MiHilo(nombreHilo);
+
+            // Crea un hilo asociado a la instancia de MiHilo y lo almacena en el arreglo
+            hilos[i] = new Thread(miHilo);
+
+            // Inicia la ejecución del hilo
+            hilos[i].start();
+        }
     }
 
 }
