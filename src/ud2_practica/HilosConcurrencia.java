@@ -24,6 +24,17 @@ public class HilosConcurrencia {
             // Inicia la ejecución del hilo
             hilos[i].start();
         }
+
+        // Bucle para esperar que todos los hilos terminen su ejecución
+        for (int i = 0; i < numeroDeHilos; i++) {
+            try {
+                // join() asegura que el programa principal espere la finalización de este hilo
+                hilos[i].join();
+            } catch (InterruptedException e) {
+                // Maneja la interrupción del hilo principal
+                System.out.println("El hilo principal fue interrumpido.");
+            }
+        }
     }
 
 }
