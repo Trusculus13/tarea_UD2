@@ -35,8 +35,10 @@ public class HilosConcurrencia {
                 System.out.println("El hilo principal fue interrumpido.");
             }
         }
-    }
 
+        // Mensaje que indica que todos los hilos han finalizado su ejecución
+        System.out.println("Todos los hilos han terminado su ejecucion.");
+    }
 }
 
 // Clase que implementa Runnable para definir la lógica del hilo
